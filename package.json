@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuintansC/Clean-API.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
