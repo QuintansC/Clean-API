@@ -4,21 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/QuintansC/Clean-API.git"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/QuintansC/Clean-API/issues"
-  },
-  "homepage": "https://github.com/QuintansC/Clean-API#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.12.5",
     "@typescript-eslint/eslint-plugin": "4",
     "eslint": "7",
@@ -28,7 +21,10 @@
     "eslint-plugin-promise": "4",
     "git-commit-msg-linter": "^3.2.6",
     "husky": "^6.0.0",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
   }
 }
