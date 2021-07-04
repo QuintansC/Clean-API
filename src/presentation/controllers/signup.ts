@@ -1,4 +1,4 @@
-import { HttpResponse, HttpRequest} from './protocols/https'
+import { HttpResponse, HttpRequest} from '../protocols/https'
 export class SignUpController {
     handle(httpRequest: HttpRequest): HttpResponse{
         if(!httpRequest.body.name){
