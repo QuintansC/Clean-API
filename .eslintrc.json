@@ -17,6 +17,5 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "@typescript-eslit/strict-boolean-expressions": "off"
     }
 }
