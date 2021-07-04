@@ -1,8 +1,10 @@
 export interface HttpResponse {
     statusCode: number,
-    body: any
+    body: {
+    }
 }
 
 export interface HttpRequest{
-    body?: any,
+    body?: {  
+    },
 }
