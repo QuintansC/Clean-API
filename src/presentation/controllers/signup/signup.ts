@@ -27,11 +27,15 @@ export class SignUpController implements Controller {
             if(fields['password'] !== fields['passwordConfirmation']){
                 return badRequest(new InvalidParamError('passwordConfirmation'))
             } 
-            this.addAccount.add({
+            const account = this.addAccount.add({
                 name: fields['name'],
                 email: fields['email'],
                 password: fields['password']
-            })                
+            })
+            return {
+                statusCode: 200,
+                body: account
+            }                
         }catch(error){
             return serverError();
         }
