@@ -4,7 +4,7 @@ import { DbAddAccount } from './db-add-account';
 interface SutTypes{
     sut: DbAddAccount,
     encrypterStub: Encrypter,
-    addAccountRepositoryStub
+    addAccountRepositoryStub: AddAccountRepository
 }
 
 const makeSut = ():SutTypes =>{
@@ -38,7 +38,7 @@ const makeAddAccountRepository = (): AddAccountRepository =>{
             return new Promise(resolve => resolve(fakeAccount))
         }
     }
-    return new AddAccountRepositoryStub()
+    return new AddAccountRepositoryStub
 }
 describe('DbAddAccount UseCase', ()=>{
     test('Should call Encrypter with correct password', async ()=>{
@@ -82,5 +82,18 @@ describe('DbAddAccount UseCase', ()=>{
             email: 'valid_email',
             password: 'hashed_password',
         })
+    })
+
+    test('Should throw if AddAccountRepository throws', async ()=>{
+        const {sut, addAccountRepositoryStub } = makeSut();
+        jest.spyOn(addAccountRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject)=>reject(new Error())))
+        const accountData = { 
+            name: 'valid_name',
+            email: 'valid_email',
+            password: 'valid_password',
+        }
+        const promise = sut.add(accountData)
+
+        await expect(promise).rejects.toThrow()
     })
 })
